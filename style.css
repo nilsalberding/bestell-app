@@ -1,0 +1,78 @@
+header {
+    background-color: #FF8000;
+    height: 10dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    img {
+        height: 8dvh;
+    }
+}
+
+main {
+    display: flex;
+
+    .shop-section {
+        width: calc(100% - 300px);
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .title-img {
+                height: 25rem;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .title-logo {
+
+                height: 12rem;
+                width: 12rem;
+                border-radius: 100%;
+                z-index: 2;
+                bottom: 6rem;
+
+            }
+
+            div {
+                padding: 8px 24px;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                bottom: 12rem;
+
+                h1 {
+                    font-size: 3rem;
+                }
+
+                span {
+                    font-size: 2.4rem;
+                }
+            }
+        }
+
+        .shop-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 8px 24px;
+
+        }
+
+        a {
+            margin-left: 24px;
+        }
+
+    }
+
+}
