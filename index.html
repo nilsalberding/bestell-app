@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bestell-App</title>
+    <link rel="icon" href="./assets/icons/favicon.png">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/standard.css">
 </head>
+
 <body>
-    
+    <header>
+        <a><img src="./assets/img/Logo.png"></a>
+        <nav></nav>
+    </header>
+    <main>
+        <section class="title">
+            <img src="./assets/img/title.jpg" alt="">
+            <img src="" alt="">
+            <div>
+                <h1>Bread Pitt</h1>
+                <span>Dein Lieblingsbäcker</span>
+                <span>Bewertung (4,9 von 5 Sternen)</span>
+            </div>
+        </section>
+        <section class="shop-nav">
+            <img src="" alt="">
+            <nav>
+                <a href="">Ganze Brote</a>
+                <a href="">Belegte Brote</a>
+            </nav>
+        </section>
+        <section class="menu">
+            <img src="./assets/img/dishes_section1.jpg" alt="">
+            <h2>Brote</h2>
+            <div id="content-menu">
+                <div class="dish">
+                    <div class="dish-desc">
+                        <h3>Brot</h3>
+                        <span>60% Weizen, 40% Roggen</span>
+                        <span>5,90€</span>
+                    </div>
+                    <button class="dish-add">+</button>
+                </div>
+            </div>
+        </section>
+        <section id=”cart”>
+            <div id=”cart-container”>
+                <h2>Warenkorb</h2>
+                <div class=”cart-dish”>
+                    <h3>Brot</h3>
+                    <div class=”cart-dish-details”>
+                        <div class=”cart-dish-amount”>
+                            <button class=”amount-del”>-</button>
+                            <span class=”current-amount>2</span>
+                            <button class=”amount-add”>+</button>
+                        </div>
+                        <span class=”cart-dish-price”>5,90€</span>
+                        <button class=”cart-dish-delete>-</button>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Zwischensumme</td>
+                            <td id=”subtotal”>5,90€</td>
+                        </tr>
+                        <tr>
+                            <td>Lieferkosten</td>
+                            <td>5,00€</td>
+                        </tr>
+                        <tr>
+                            <td>Gesamt</td>
+                            <td id=”total>10,90€</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
