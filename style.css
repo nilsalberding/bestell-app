@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,7 +27,7 @@ header {
 
 main {
     display: flex;
-    min-height: 85dvh;
+    min-height: 120dvh;
 
     .shop-section {
         width: calc(100% - 30rem);
@@ -73,7 +73,8 @@ main {
                 span {
                     font-size: 2.2rem;
                 }
-                .valuation{
+
+                .valuation {
                     font-size: 1.8rem;
                     color: #FF8000;
 
@@ -91,6 +92,7 @@ main {
             a {
                 margin-left: 24px;
                 color: rgba(0, 0, 0, 0.5);
+                font-weight: 700;
             }
         }
 
@@ -119,36 +121,145 @@ main {
                     margin-bottom: 16px;
 
 
+
+
                     .dish-desc {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
                         height: 10rem;
                         padding: 8px 24px;
+
+                        .dish-price {
+                            color: #FF8000;
+                            font-weight: 700;
+                        }
                     }
 
                     .add-dish {
-                        padding: 8px;
+                        height: 4rem;
                         width: 4rem;
-                        background-color: transparent;
-                        color: #FF8000;
-                        font-size: 2rem;
-                        text-align: center;
+                        background-color: white;
+                        background-image: url(./assets/icons/add.png);
+                        background-repeat: no-repeat;
+                        background-position: center;
                         border: none;
                         border-left: solid 1px rgba(0, 0, 0, 0.2);
                         border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 
                     }
+
+                    .add-dish:hover {
+                        background-size: cover;
+                    }
+                }
+
+                .dish:hover {
+                    background-color: #ff800030;
                 }
             }
         }
 
+        .cart {
+            min-height: 85dvh;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+
 
     }
 
+    .cart {
+        width: 300px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+
+        .cart-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+
+            .cart-item {
+                width: 100%;
+                padding: 16px;
+                height: 8rem;
+
+                h3 {
+                    margin-bottom: 8px;
+                    font-size: 1.8rem;
+                }
+                .cart-item-details {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .cart-item-amount {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                    }
+
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        width: 3.5rem;
+                        height: 3.5rem;
+                    }
+
+                    button:hover {
+                        border: #FF8000 solid 3px;
+                        border-radius: 100%;
+                    }
+
+                    .amount-remove {
+                        background-image: url(/assets/icons/remove.png);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .amount-add {
+                        background-image: url(/assets/icons/add.png);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .cart-item-del {
+                        background-image: url(/assets/icons/delete.png);
+                        background-repeat: no-repeat;
+                        background-position: center;
+
+                    }
+                }
+            }
+
+            table {
+                width: 100%;
+                display: flex;
+                padding: 16px;
+
+                tbody {
+                    width: 100%;
+                }
+
+                tr {
+                    margin-bottom: 4px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
 }
 
-footer{
+
+
+footer {
     background-color: #FF8000;
     width: 100%;
     height: 5dvh;
