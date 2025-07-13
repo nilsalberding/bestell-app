@@ -9,13 +9,22 @@
 
 html {
     font-size: 10px;
+    
 }
 body{
-    font-size: 16px;
+    font-size: 1.6rem;
     font-family: 'Roboto';
 }
 
 .content{
     width: 100%;
     max-width: 1920px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.d-none{
+    display: none;
 }
