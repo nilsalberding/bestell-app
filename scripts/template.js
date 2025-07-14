@@ -10,3 +10,20 @@ function getMenuItem(index, name, desc, price){
                     </div>
     `
 }
+
+function getCartItem(cartIndex, menuIndex, name, price, amount){
+    return /*html*/`
+                    <div class="cart-item">
+                        <h3>${name}</h3>
+                        <div class="cart-item-details">
+                            <div class="cart-item-amount">
+                                <button type="button" class="amount-remove" onclick="removeOneProduct(${menuIndex}, ${cartIndex})"></button>
+                                <span class="current-amount">${amount}</span>
+                                <button type="button" class="amount-add" onclick="addOneProduct(${menuIndex})"></button>
+                            </div>
+                            <span class="cart-item-price">${price}</span>
+                            <button type="button" class="cart-item-del" onclick="deleteFromCart(${menuIndex}, ${cartIndex})"></button>
+                        </div>
+                    </div>
+        `
+}

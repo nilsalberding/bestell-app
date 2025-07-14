@@ -6,6 +6,8 @@ class MenuItem {
     desc;
     price;
     formattedPrice;
+    amountInCart = 0;
+    index = -1;
 
     constructor(pName, pDesc, pPrice) {
 
@@ -40,75 +42,106 @@ const menuArray = [
 
 const cart = [];
 
-// Produkte rendern
+// #region Produkte rendern
 
-function renderMenu(){
+function renderMenu() {
 
     const menuRef = document.getElementById('content-menu');
 
     menuRef.innerHTML = ""
 
-    for(let i = 0; i < menuArray.length; i++){
+    for (let i = 0; i < menuArray.length; i++) {
+        // hinterlege den Index in der Objektreferenz
+        menuArray[i].index = i;
 
         menuRef.innerHTML += getMenuItem(i, menuArray[i].name, menuArray[i].desc, menuArray[i].formattedPrice)
     }
 }
 
-function init(){
+function init() {
 
     renderMenu();
+    console.log(menuArray)
 }
 
-
+//#endregion
 
 // Warenkorb-items hinzufügen
 
-function addToCart(index){
+function addToCart(index) {
 
-    cart.push(menuArray[index]);
+    if (menuArray[index].amountInCart == 0) {
+        cart.push(menuArray[index]);
+    }
 
+    menuArray[index].amountInCart++;
     // cart Rendern
 
     renderCart();
 }
 
-// Warenkorb-items rendern
+//#region Warenkorb-items rendern
 
-function renderCart(){
-    const cartRef = document.getElementById('cart-item-container')
+function formatTotalPrice(price){
 
+        let fPrice = price.toFixed(2);
+        fPrice = fPrice.replace('.', ',');
+        return fPrice + '€';
+
+}
+
+function renderCart() {
+    const cartRef = document.getElementById('cart-item-container');
     cartRef.innerHTML = ""
 
-    for(let i = 0; i < cart.length; i++){
+    for (let i = 0; i < cart.length; i++) {
 
-        cartRef.innerHTML += /*html*/`
-                    <div class="cart-item">
-                        <h3>${cart[i].name}</h3>
-                        <div class="cart-item-details">
-                            <div class="cart-item-amount">
-                                <button type="button" class="amount-remove"></button>
-                                <span class="current-amount">2</span>
-                                <button type="button" class="amount-add"></button>
-                            </div>
-                            <span class="cart-item-price">${cart[i].formattedPrice}</span>
-                            <button type="button" class="cart-item-del"></button>
-                        </div>
-                    </div>
-        `
+        let total = cart[i].amountInCart * cart[i].price;
+        total = formatTotalPrice(total);
+
+            cartRef.innerHTML += getCartItem(i, cart[i].index, cart[i].name, total, cart[i].amountInCart);
     }
 }
 
-// Warenkorb-Items Anzahl verändern
+//#endregion
 
-// TODO: next Step
+
+// #region Warenkorb-Items Anzahl verändern
 
 // Anzahl erhöhen
 
+function addOneProduct(index) {
+
+    menuArray[index].amountInCart++;
+    renderCart();
+
+}
+
 // Anzahl verringern
+
+function removeOneProduct(index, cartIndex){
+
+    if(menuArray[index].amountInCart == 1){
+        cart.splice(cartIndex, 1);
+    }
+
+    menuArray[index].amountInCart--;
+    renderCart();
+}
 
 // Item komplett löschen
 
-// Warenkorb responsive anzeigen
+function deleteFromCart(index, cartIndex){
+
+    cart.splice(cartIndex, 1);
+    menuArray[index].amountInCart = 0;
+    renderCart();
+
+}
+
+// #endregion
+
+// #region Warenkorb responsive anzeigen
 
 
 function showCart() {
@@ -121,4 +154,9 @@ function bubblingPrevention(event) {
     event.stopPropagation(event);
 }
 
-// 
+// #endregion
+
+
+// TODO: next step
+// Zwischensumme berechnen und anzeigen
+// Gesamtsumme berechnen und anzeigen
