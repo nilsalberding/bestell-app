@@ -1,6 +1,6 @@
-function getMenuItem(name, desc, price){
+function getMenuItem(index, name, desc, price){
     return /*html*/`
-                    <div class="dish">
+                    <div class="dish" onclick="addToCart(${index})">
                         <div class="dish-desc">
                             <h3>${name}</h3>
                             <span>${desc}</span>

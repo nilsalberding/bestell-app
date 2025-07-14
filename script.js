@@ -38,6 +38,8 @@ const menuArray = [
     new MenuItem("Walnussbrot", "Nussiges Aroma durch grob gehackte Walnüsse, perfekt zu Käse", 4.49)
 ];
 
+const cart = [];
+
 // Produkte rendern
 
 function renderMenu(){
@@ -48,7 +50,7 @@ function renderMenu(){
 
     for(let i = 0; i < menuArray.length; i++){
 
-        menuRef.innerHTML += getMenuItem(menuArray[i].name, menuArray[i].desc, menuArray[i].formattedPrice)
+        menuRef.innerHTML += getMenuItem(i, menuArray[i].name, menuArray[i].desc, menuArray[i].formattedPrice)
     }
 }
 
@@ -57,9 +59,48 @@ function init(){
     renderMenu();
 }
 
+
+
 // Warenkorb-items hinzufügen
 
+function addToCart(index){
+
+    cart.push(menuArray[index]);
+
+    // cart Rendern
+
+    renderCart();
+}
+
+// Warenkorb-items rendern
+
+function renderCart(){
+    const cartRef = document.getElementById('cart-item-container')
+
+    cartRef.innerHTML = ""
+
+    for(let i = 0; i < cart.length; i++){
+
+        cartRef.innerHTML += /*html*/`
+                    <div class="cart-item">
+                        <h3>${cart[i].name}</h3>
+                        <div class="cart-item-details">
+                            <div class="cart-item-amount">
+                                <button type="button" class="amount-remove"></button>
+                                <span class="current-amount">2</span>
+                                <button type="button" class="amount-add"></button>
+                            </div>
+                            <span class="cart-item-price">${cart[i].formattedPrice}</span>
+                            <button type="button" class="cart-item-del"></button>
+                        </div>
+                    </div>
+        `
+    }
+}
+
 // Warenkorb-Items Anzahl verändern
+
+// TODO: next Step
 
 // Anzahl erhöhen
 

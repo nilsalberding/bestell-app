@@ -222,7 +222,7 @@ main {
                 font-size: 1.8rem;
             }
 
-            .cart-item-container {
+            #cart-item-container {
                 height: 20rem;
                 overflow: auto;
                 width: 100%;
