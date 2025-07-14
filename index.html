@@ -7,8 +7,9 @@
     <title>Bestell-App</title>
     <link rel="icon" href="./assets/icons/favicon.png">
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/standard.css">
+    <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="assets/fonts/fonts.css">
 </head>
 
@@ -70,9 +71,10 @@
                 </div>
             </section>
         </section>
-        <section class="cart">
+        <section id="cart" class="d-none cart-section ">
+
+            <h2>Warenkorb</h2>
             <div class="cart-container">
-                <h2>Warenkorb</h2>
                 <div class="cart-item">
                     <h3>Brot</h3>
                     <div class="cart-item-details">
@@ -85,6 +87,8 @@
                         <button type="button" class="cart-item-del"></button>
                     </div>
                 </div>
+
+            </div>
                 <table>
                     <tr>
                         <td>Zwischensumme</td>
@@ -99,10 +103,10 @@
                         <td id="total">10,90€</td>
                     </tr>
                 </table>
-            </div>           
+            
         </section>
         <section class="cart-mobile">
-            <button type="button">Warenkorb</button>
+            <button type="button" onclick="showCart()" >Warenkorb</button>
 
         </section>
 
