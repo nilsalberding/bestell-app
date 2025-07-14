@@ -329,22 +329,23 @@ main {
 }
 
 @media(max-width: 768px) {
-    .cart-section {
-        background-color: rgba(0, 0, 0, 0.3);
-        height: 100dvh;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        z-index: 1;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
+    main {
+        .cart-section {
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 100dvh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
 
-        .cart-container {
-            background-color: white;
-            border-radius: 8px;
+            .cart-container {
+                background-color: white;
+                border-radius: 8px;
+            }
         }
-
     }
 }
 
