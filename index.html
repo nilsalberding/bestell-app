@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="stylesheet" href="assets/fonts/fonts.css">
 </head>
 
@@ -21,6 +21,7 @@
         </div>
     </header>
     <main class="content">
+
         <section class="shop-section">
             <section class="title">
                 <div class="title-img">
@@ -71,42 +72,45 @@
                 </div>
             </section>
         </section>
+
         <section id="cart" class="d-none cart-section ">
 
-            <h2>Warenkorb</h2>
             <div class="cart-container">
-                <div class="cart-item">
-                    <h3>Brot</h3>
-                    <div class="cart-item-details">
-                        <div class="cart-item-amount">
-                            <button type="button" class="amount-remove"></button>
-                            <span class="current-amount">2</span>
-                            <button type="button" class="amount-add"></button>
+                <h2>Warenkorb</h2>
+                <div class="cart-item-container">
+                    <div class="cart-item">
+                        <h3>Brot</h3>
+                        <div class="cart-item-details">
+                            <div class="cart-item-amount">
+                                <button type="button" class="amount-remove"></button>
+                                <span class="current-amount">2</span>
+                                <button type="button" class="amount-add"></button>
+                            </div>
+                            <span class="cart-item-price">5,90€</span>
+                            <button type="button" class="cart-item-del"></button>
                         </div>
-                        <span class="cart-item-price">5,90€</span>
-                        <button type="button" class="cart-item-del"></button>
                     </div>
                 </div>
-
-            </div>
-                <table>
-                    <tr>
-                        <td>Zwischensumme</td>
-                        <td id="subtotal" class="text-right">5,90€</td>
-                    </tr>
-                    <tr>
-                        <td>Lieferkosten</td>
-                        <td>5,00€</td>
-                    </tr>
-                    <tr>
-                        <td>Gesamt</td>
-                        <td id="total">10,90€</td>
-                    </tr>
-                </table>
             
+            <table>
+                <tr>
+                    <td>Zwischensumme</td>
+                    <td id="subtotal" class="text-right">5,90€</td>
+                </tr>
+                <tr>
+                    <td>Lieferkosten</td>
+                    <td>5,00€</td>
+                </tr>
+                <tr>
+                    <td>Gesamt</td>
+                    <td id="total">10,90€</td>
+                </tr>
+            </div>
+            </table>
+
         </section>
         <section class="cart-mobile">
-            <button type="button" onclick="showCart()" >Warenkorb</button>
+            <button type="button" onclick="showCart()">Warenkorb</button>
 
         </section>
 

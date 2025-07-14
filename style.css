@@ -203,15 +203,16 @@ main {
         width: 30rem;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
         padding-top: 16px;
-        
-        h2{
+
+        h2 {
             text-align: center;
+            padding-top: 1.6rem;
         }
 
         .cart-container {
-            height: 20rem;
+
             width: 100%;
-            overflow: auto;
+
             position: sticky;
             top: 0;
             z-index: 2;
@@ -221,54 +222,61 @@ main {
                 font-size: 1.8rem;
             }
 
-            .cart-item {
+            .cart-item-container {
+                height: 20rem;
+                overflow: auto;
                 width: 100%;
-                padding: 16px;
-                height: 8rem;
 
 
-
-                .cart-item-details {
+                .cart-item {
                     width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                    padding: 16px;
+                    height: 8rem;
 
-                    .cart-item-amount {
+
+
+                    .cart-item-details {
+                        width: 100%;
                         display: flex;
+                        justify-content: space-between;
                         align-items: center;
-                        gap: 6px;
-                    }
 
-                    button {
-                        background-color: transparent;
-                        border: none;
-                        width: 3.5rem;
-                        height: 3.5rem;
-                    }
+                        .cart-item-amount {
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        }
 
-                    button:hover {
-                        border: #FF8000 solid 3px;
-                        border-radius: 100%;
-                    }
+                        button {
+                            background-color: transparent;
+                            border: none;
+                            width: 3.5rem;
+                            height: 3.5rem;
+                        }
 
-                    .amount-remove {
-                        background-image: url(/assets/icons/remove.png);
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
+                        button:hover {
+                            border: #FF8000 solid 3px;
+                            border-radius: 100%;
+                        }
 
-                    .amount-add {
-                        background-image: url(/assets/icons/add.png);
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
+                        .amount-remove {
+                            background-image: url(/assets/icons/remove.png);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
 
-                    .cart-item-del {
-                        background-image: url(/assets/icons/delete.png);
-                        background-repeat: no-repeat;
-                        background-position: center;
+                        .amount-add {
+                            background-image: url(/assets/icons/add.png);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
 
+                        .cart-item-del {
+                            background-image: url(/assets/icons/delete.png);
+                            background-repeat: no-repeat;
+                            background-position: center;
+
+                        }
                     }
                 }
             }
@@ -317,6 +325,26 @@ main {
             background-color: #ff800030;
             color: #FF8000;
         }
+    }
+}
+
+@media(max-width: 768px) {
+    .cart-section {
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 100dvh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+
+        .cart-container {
+            background-color: white;
+            border-radius: 8px;
+        }
+
     }
 }
 
