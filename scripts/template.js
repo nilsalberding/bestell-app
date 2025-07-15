@@ -27,3 +27,4 @@ function getCartItem(cartIndex, menuIndex, name, price, amount){
                     </div>
         `
 }
+

@@ -159,13 +159,10 @@ function deleteFromCart(index, cartIndex) {
 
 
 function showCart() {
-
+    const footerRef = document.getElementById('footer');
     const cartRef = document.getElementById('cart');
+    footerRef.classList.toggle('d-none');
     cartRef.classList.toggle('d-none');
-}
-
-function bubblingPrevention(event) {
-    event.stopPropagation(event);
 }
 
 // #endregion

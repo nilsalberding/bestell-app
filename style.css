@@ -44,7 +44,7 @@ main {
         flex-direction: column;
     }
 
-    .shop-section {
+    #shop-section {
         width: calc(100% - 30rem);
 
         @media(max-width: 768px) {
@@ -274,6 +274,7 @@ main {
             }
 
             table {
+                margin-top: 1.6rem;
                 width: 100%;
                 display: flex;
                 
@@ -304,6 +305,9 @@ main {
         display: none;
         height: 7rem;
         width: 100%;
+        position: sticky;
+        bottom: 0;
+        background-color: white;
 
         @media(max-width: 768px) {
             display: flex;
@@ -331,18 +335,21 @@ main {
 @media(max-width: 768px) {
     main {
         .cart-section {
-            background-color: rgba(0, 0, 0, 0.3);
-            height: 100dvh;
+            background-color: white;
+            height: calc(100dvh - 7rem);
             width: 100%;
             position: fixed;
             top: 0;
             z-index: 1;
+            box-shadow: none;
 
 
             .cart-container {
                 background-color: white;
                 border-radius: 8px;
-                width: 40rem;
+                width: 100%;
+                height: auto;
+                max-height: 70dvh;
 
                 @media(max-width: 450px) {
                     width: 30rem;
