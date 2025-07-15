@@ -8,6 +8,7 @@ class MenuItem {
     formattedPrice;
     amountInCart = 0;
     index = -1;
+    productTotal;
 
     constructor(pName, pDesc, pPrice) {
 
@@ -16,12 +17,18 @@ class MenuItem {
         this.price = pPrice;
 
         this.formatPrice();
+        this.validateProductTotal();
+
     }
 
     formatPrice() {
         let fPrice = this.price.toFixed(2);
         fPrice = fPrice.replace('.', ',');
         this.formattedPrice = fPrice + '€';
+    }
+
+    validateProductTotal() {
+        this.productTotal = this.price * this.amountInCart;
     }
 }
 
@@ -78,15 +85,17 @@ function addToCart(index) {
     // cart Rendern
 
     renderCart();
+    validateSubTotal();
+    validateTotal();
 }
 
 //#region Warenkorb-items rendern
 
-function formatTotalPrice(price){
+function formatTotalPrice(price) {
 
-        let fPrice = price.toFixed(2);
-        fPrice = fPrice.replace('.', ',');
-        return fPrice + '€';
+    let fPrice = price.toFixed(2);
+    fPrice = fPrice.replace('.', ',');
+    return fPrice + '€';
 
 }
 
@@ -99,7 +108,7 @@ function renderCart() {
         let total = cart[i].amountInCart * cart[i].price;
         total = formatTotalPrice(total);
 
-            cartRef.innerHTML += getCartItem(i, cart[i].index, cart[i].name, total, cart[i].amountInCart);
+        cartRef.innerHTML += getCartItem(i, cart[i].index, cart[i].name, total, cart[i].amountInCart);
     }
 }
 
@@ -114,29 +123,34 @@ function addOneProduct(index) {
 
     menuArray[index].amountInCart++;
     renderCart();
+    validateSubTotal();
+    validateTotal();
 
 }
 
 // Anzahl verringern
 
-function removeOneProduct(index, cartIndex){
+function removeOneProduct(index, cartIndex) {
 
-    if(menuArray[index].amountInCart == 1){
+    if (menuArray[index].amountInCart == 1) {
         cart.splice(cartIndex, 1);
     }
 
     menuArray[index].amountInCart--;
     renderCart();
+    validateSubTotal();
+    validateTotal();
 }
 
 // Item komplett löschen
 
-function deleteFromCart(index, cartIndex){
+function deleteFromCart(index, cartIndex) {
 
     cart.splice(cartIndex, 1);
     menuArray[index].amountInCart = 0;
     renderCart();
-
+    validateSubTotal();
+    validateTotal();
 }
 
 // #endregion
@@ -156,7 +170,36 @@ function bubblingPrevention(event) {
 
 // #endregion
 
-
-// TODO: next step
 // Zwischensumme berechnen und anzeigen
+
+function validateSubTotal() {
+
+    const subTotalRef = document.getElementById('subtotal')
+    let subTotal = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+
+        cart[i].validateProductTotal();
+
+        subTotal += cart[i].productTotal;
+    }
+    const fSubTotal = formatTotalPrice(subTotal);
+    subTotalRef.innerHTML = fSubTotal;
+
+    return subTotal;
+}
+
 // Gesamtsumme berechnen und anzeigen
+
+function validateTotal(){
+
+    const totalRef = document.getElementById('total')
+    const subTotal = validateSubTotal();
+
+    const total = subTotal + 5;
+    const fTotal = formatTotalPrice(total);
+
+    totalRef.innerHTML = fTotal;
+}
+
+// 
