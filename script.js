@@ -2,6 +2,8 @@
 
 class MenuItem {
 
+    // #region attributes
+
     name;
     desc;
     price;
@@ -9,6 +11,8 @@ class MenuItem {
     amountInCart = 0;
     index = -1;
     productTotal;
+
+    // #endregion
 
     constructor(pName, pDesc, pPrice) {
 
@@ -21,6 +25,8 @@ class MenuItem {
 
     }
 
+    // #region methods
+
     formatPrice() {
         let fPrice = this.price.toFixed(2);
         fPrice = fPrice.replace('.', ',');
@@ -30,9 +36,11 @@ class MenuItem {
     validateProductTotal() {
         this.productTotal = this.price * this.amountInCart;
     }
+
+    // #endregion
 }
 
-// Database für Produkte erstellen
+// #region database 
 
 const menuArray = [
     new MenuItem("Bauernbrot", "Kräftiges Roggenmischbrot mit knuspriger Kruste", 3.49),
@@ -48,6 +56,8 @@ const menuArray = [
 ];
 
 const cart = [];
+
+// #endregion
 
 // #region Produkte rendern
 
@@ -75,6 +85,13 @@ function init() {
 
 // Warenkorb-items hinzufügen
 
+function renderAndValidate() {
+
+    renderCart();
+    validateSubTotal();
+    validateTotal();
+}
+
 function addToCart(index) {
 
     if (menuArray[index].amountInCart == 0) {
@@ -84,9 +101,7 @@ function addToCart(index) {
     menuArray[index].amountInCart++;
     // cart Rendern
 
-    renderCart();
-    validateSubTotal();
-    validateTotal();
+    renderAndValidate();
 }
 
 //#region Warenkorb-items rendern
@@ -96,7 +111,6 @@ function formatTotalPrice(price) {
     let fPrice = price.toFixed(2);
     fPrice = fPrice.replace('.', ',');
     return fPrice + '€';
-
 }
 
 function renderCart() {
@@ -114,7 +128,6 @@ function renderCart() {
 
 //#endregion
 
-
 // #region Warenkorb-Items Anzahl verändern
 
 // Anzahl erhöhen
@@ -122,10 +135,7 @@ function renderCart() {
 function addOneProduct(index) {
 
     menuArray[index].amountInCart++;
-    renderCart();
-    validateSubTotal();
-    validateTotal();
-
+    renderAndValidate();
 }
 
 // Anzahl verringern
@@ -137,9 +147,7 @@ function removeOneProduct(index, cartIndex) {
     }
 
     menuArray[index].amountInCart--;
-    renderCart();
-    validateSubTotal();
-    validateTotal();
+    renderAndValidate();
 }
 
 // Item komplett löschen
@@ -148,24 +156,19 @@ function deleteFromCart(index, cartIndex) {
 
     cart.splice(cartIndex, 1);
     menuArray[index].amountInCart = 0;
-    renderCart();
-    validateSubTotal();
-    validateTotal();
+    renderAndValidate();
 }
 
 // #endregion
 
-// #region Warenkorb responsive anzeigen
-
+// Warenkorb responsive anzeigen
 
 function showCart() {
     const footerRef = document.getElementById('footer');
     const cartRef = document.getElementById('cart');
     footerRef.classList.toggle('d-none');
-    cartRef.classList.toggle('d-none');
+    cartRef.classList.toggle('d-none-cart');
 }
-
-// #endregion
 
 // Zwischensumme berechnen und anzeigen
 
@@ -188,7 +191,7 @@ function validateSubTotal() {
 
 // Gesamtsumme berechnen und anzeigen
 
-function validateTotal(){
+function validateTotal() {
 
     const totalRef = document.getElementById('total')
     const subTotal = validateSubTotal();
@@ -199,4 +202,17 @@ function validateTotal(){
     totalRef.innerHTML = fTotal;
 }
 
-// 
+// erfolgreiche Bestellung anzeigen
+
+function orderSuccess() {
+
+    const overviewRef = document.getElementById('order-overview');
+    const orderRef = document.getElementById('order-success');
+    orderRef.classList.toggle('d-none');
+    orderRef.classList.toggle('d-flex');
+
+    for (let i = 0; i < cart.length; i++) {
+
+        overviewRef.innerHTML += getOverview(cart[i].name, cart[i].amountInCart, cart[i].productTotal)
+    }
+}

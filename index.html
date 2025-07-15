@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="styles/order-success.css">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
 
     <script src="./scripts/template.js"></script>
@@ -22,6 +22,7 @@
             <nav></nav>
         </div>
     </header>
+
     <main class="content">
 
         <section id="shop-section">
@@ -36,6 +37,7 @@
                     <span class="valuation">Bewertung (4,9 von 5 Sternen)</span>
                 </div>
             </section>
+
             <section class="shop-nav">
                 <img src="./assets/icons/arrow-right.png" alt="">
                 <nav>
@@ -43,16 +45,16 @@
                     <a href="">Belegte Brote</a>
                 </nav>
             </section>
+
             <section class="menu">
                 <img src="./assets/img/dishes_section1.jpg" alt="">
                 <h2>Brote</h2>
                 <div id="content-menu">
-
                 </div>
             </section>
         </section>
 
-        <section id="cart" class="d-none cart-section ">
+        <section id="cart" class="d-none-cart cart-section ">
 
             <div class="cart-container">
                 <h2>Warenkorb</h2>
@@ -74,15 +76,27 @@
                         <td id="total"></td>
                     </tr>
                 </table>
-                <button id="order-btn">Jetzt bestellen</button>
+                <button id="order-btn" onclick="orderSuccess()">Jetzt bestellen</button>
             </div>
 
         </section>
+
         <section class="cart-mobile">
             <button type="button" onclick="showCart()">Warenkorb</button>
-
         </section>
+
     </main>
+
+    <section id="order-success" class="d-none">
+        <div class="content">
+            <h2>Bestellung erfolgreich!</h2>
+            <h3>Deine Bestellübersicht:</h3>
+            <table id="order-overview">
+            </table>
+            <button onclick="location.reload()">Zurück zum Shop</button>
+        </div>
+    </section>
+
     <footer id="footer"></footer>
 
 

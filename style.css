@@ -151,21 +151,22 @@ main {
                 width: 100%;
 
                 .dish {
+                    width: 100%;
                     display: flex;
                     justify-content: space-between;
                     align-items: flex-start;
                     border: solid rgba(0, 0, 0, 0.2) 1px;
                     margin-bottom: 16px;
 
-
-
-
                     .dish-desc {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
-                        height: 10rem;
                         padding: 8px 24px;
+
+                        .dish-text{
+                            padding: 8px 0;
+                        }
 
                         .dish-price {
                             color: #FF8000;
@@ -175,7 +176,7 @@ main {
 
                     .add-dish {
                         height: 4rem;
-                        width: 4rem;
+                        min-width: 4rem;
                         background-color: white;
                         background-image: url(./assets/icons/add.png);
                         background-repeat: no-repeat;
@@ -277,7 +278,6 @@ main {
                 margin-top: 1.6rem;
                 width: 100%;
                 display: flex;
-                
 
                 tbody {
                     width: 100%;
@@ -343,17 +343,12 @@ main {
             z-index: 1;
             box-shadow: none;
 
-
             .cart-container {
                 background-color: white;
                 border-radius: 8px;
                 width: 100%;
                 height: auto;
                 max-height: 70dvh;
-
-                @media(max-width: 450px) {
-                    width: 30rem;
-                }
 
                 #cart-item-container {
                     height: 30rem;

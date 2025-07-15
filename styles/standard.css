@@ -27,10 +27,14 @@ button {
   border: none;
 }
 
-.d-none {
+.d-none-cart{
   @media(max-width: 768px) {
     display: none;
   }
+}
+
+.d-none{
+  display: none;
 }
 
 .d-flex {

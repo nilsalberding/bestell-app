@@ -3,7 +3,7 @@ function getMenuItem(index, name, desc, price){
                     <div class="dish" onclick="addToCart(${index})">
                         <div class="dish-desc">
                             <h3>${name}</h3>
-                            <span>${desc}</span>
+                            <span class="dish-text">${desc}</span>
                             <span class="dish-price">${price}</span>
                         </div>
                         <button type="button" class="add-dish"></button>
@@ -28,3 +28,12 @@ function getCartItem(cartIndex, menuIndex, name, price, amount){
         `
 }
 
+function getOverview(name, amount, price){
+    return /*html*/`
+            <tr>
+                <td class="overview-name">${name}</td>
+                <td>${amount}x</td>
+                <td>${price}€</td>
+            </tr>
+    `
+}
