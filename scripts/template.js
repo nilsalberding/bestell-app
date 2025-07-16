@@ -33,7 +33,7 @@ function getOverview(name, amount, price){
             <tr>
                 <td class="overview-name">${name}</td>
                 <td>${amount}x</td>
-                <td>${price}€</td>
+                <td>${price}</td>
             </tr>
     `
 }

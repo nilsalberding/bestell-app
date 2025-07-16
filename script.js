@@ -78,7 +78,6 @@ function renderMenu() {
 function init() {
 
     renderMenu();
-    console.log(menuArray)
 }
 
 //#endregion
@@ -213,6 +212,8 @@ function orderSuccess() {
 
     for (let i = 0; i < cart.length; i++) {
 
-        overviewRef.innerHTML += getOverview(cart[i].name, cart[i].amountInCart, cart[i].productTotal)
+        const subTotal = formatTotalPrice(cart[i].productTotal);
+
+        overviewRef.innerHTML += getOverview(cart[i].name, cart[i].amountInCart, subTotal)
     }
 }
